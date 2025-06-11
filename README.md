@@ -11,7 +11,7 @@ This is a frontend application built with **Angular 15+** to manage bicycle-rela
 
 ## 🔧 Technologies Used
 
-- Angular 15+
+- Angular 20+
 - Angular Material
 - Reactive Forms
 - TypeScript
