@@ -1,59 +1,87 @@
-# ArticleDashboard
+# Article Management Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
+This is a frontend application built with **Angular 15+** to manage bicycle-related articles. It provides functionality for:
 
-## Development server
+- Creating, editing, and listing articles
+- Filtering articles by category, material, and bicycle types
+- Managing article categories, materials, and bicycle categories
+- Integration with secured .NET 6+ Web API using **JWT Authentication**
 
-To start a local development server, run:
+---
+
+## 🔧 Technologies Used
+
+- Angular 15+
+- Angular Material
+- Reactive Forms
+- TypeScript
+- RxJS
+- JWT Authentication
+- API Integration (REST)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/HassanMohamedAli/noca-dashboard.git
+cd noca-dashboard
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the Application
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+App will run at: [http://localhost:4200](http://localhost:4200)
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## ⚙️ Environment
 
-```bash
-ng generate component component-name
+Make sure to update the `environment.ts` file with your API base URL and JWT token key if required.
+
+```ts
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:5220/api/v1',
+};
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 📦 API Integration
 
-## Building
+The app communicates with the backend via secured endpoints using JWT tokens. Make sure you're logged in to access protected routes.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 📌 Notes
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Clean and responsive UI using Angular Material
+- Applied object-oriented and modular structure
+- Designed with scalability and reusability in mind
+- Authentication token is stored and attached via `HttpInterceptor`
+- Basic error handling and loading indicators implemented
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🙏 Credits
 
-```bash
-ng test
-```
+Special thanks to **Mr. Robert Teschendorf** for providing this opportunity.  
+This task allowed me to explore Angular 20+ features, apply JWT Authentication, API Versioning, and build a clean architecture with real-world patterns.
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 📄 License
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT
