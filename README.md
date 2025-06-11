@@ -1,6 +1,6 @@
 # Article Management Dashboard
 
-This is a frontend application built with **Angular 15+** to manage bicycle-related articles. It provides functionality for:
+This is a frontend application built with **Angular 20+** to manage bicycle-related articles. It provides functionality for:
 
 - Creating, editing, and listing articles
 - Filtering articles by category, material, and bicycle types
