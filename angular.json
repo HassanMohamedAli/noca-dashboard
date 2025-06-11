@@ -23,15 +23,31 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.scss"
-            ]
+           "assets": [
+  "src/assets",
+  "src/favicon.ico"
+],
+"styles": [
+  "@angular/material/prebuilt-themes/azure-blue.css",
+  "src/assets/css/soft-ui-dashboard.css",
+  "src/assets/css/nucleo-svg.css",
+  "src/assets/css/nucleo-icons.css"
+],
+"scripts": [
+   "src/assets/js/jquery-2.2.4.min.js",
+ 
+   "src/assets/js/core/bootstrap.bundle.min.js",
+
+  "src/assets/js/core/popper.min.js",
+  "src/assets/js/plugins/bootstrap-notify.js",
+     "src/assets/js/core/bootstrap.min.js",
+  "src/assets/js/plugins/perfect-scrollbar.min.js",
+  "src/assets/js/plugins/smooth-scrollbar.min.js",
+   "src/assets/js/soft-ui-dashboard.min.js"
+  
+]
+ 
+
           },
           "configurations": {
             "production": {
@@ -88,6 +104,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.scss"
             ]
           }

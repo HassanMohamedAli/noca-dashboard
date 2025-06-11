@@ -1,0 +1,23 @@
+<div class="container p-4">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row g-3">
+    <div class="col-md-6">
+      <mat-form-field class="w-100">
+        <mat-label>Material Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter material name" />
+      </mat-form-field>
+    </div>
+
+    <div class="col-12">
+      <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+        Add Material
+
+
+            <mat-progress-spinner *ngIf="isLoading"
+                        diameter="20"
+                        mode="indeterminate"
+                        color="accent">
+  </mat-progress-spinner>
+      </button>
+    </div>
+  </form>
+</div>

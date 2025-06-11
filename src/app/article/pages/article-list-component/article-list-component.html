@@ -1,0 +1,167 @@
+<div class="container p-4">
+  
+<!--   
+  <form [formGroup]="filterForm" class="row mb-4">
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Article Category</mat-label>
+        <mat-select formControlName="articleCategory"  >
+  <mat-option *ngFor="let artCat of articleCategories" [value]="artCat.id">
+    {{ artCat.name }}
+  </mat-option>
+</mat-select>
+      </mat-form-field>
+    </div>
+
+    
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Bicycle Category</mat-label>
+        <mat-select   multiple>
+  <mat-option *ngFor="let cat of bicycleCategories" [value]="cat.id">
+    {{ cat.name }}
+  </mat-option>
+</mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Material</mat-label>
+       <mat-select  >
+    <mat-option *ngFor="let mat of materials" [value]="mat.id">
+      {{ mat.name }}
+    </mat-option>
+  </mat-select>
+      </mat-form-field>
+    </div>
+  </form> -->
+
+  <form [formGroup]="filterForm" (ngSubmit)="onFilter()" class="row mb-4">
+  
+  <div class="col-md-4">
+    <mat-form-field class="w-100">
+      <mat-label>Article Category</mat-label>
+      <mat-select formControlName="articleCategoryId">
+       
+        <mat-option *ngFor="let artCat of articleCategories" [value]="artCat.id">
+          {{ artCat.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  
+  <div class="col-md-4">
+    <mat-form-field class="w-100">
+      <mat-label>Bicycle Categories</mat-label>
+      <mat-select formControlName="bicycleCategoryIds" multiple>
+        <mat-option *ngFor="let cat of bicycleCategories" [value]="cat.id">
+          {{ cat.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  
+  <div class="col-md-4">
+    <mat-form-field class="w-100">
+      <mat-label>Material</mat-label>
+      <mat-select formControlName="materialId">
+       
+        <mat-option *ngFor="let mat of materials" [value]="mat.id">
+          {{ mat.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="col-md-12 text-end mt-2">
+    <button mat-raised-button color="primary" type="submit">Filter
+
+    <mat-progress-spinner *ngIf="isLoading"
+                        diameter="20"
+                        mode="indeterminate"
+                        color="accent">
+  </mat-progress-spinner>
+
+    </button>
+  </div>
+</form>
+
+<div *ngIf="filteredArticles.length === 0" class="text-center mt-3">
+  <p>No Articles Data</p>
+</div>
+
+  <table mat-table [dataSource]="filteredArticles" class="mat-elevation-z8 w-100">
+
+
+ <ng-container matColumnDef="ArticleNumber">
+  <th mat-header-cell *matHeaderCellDef> Article Number </th>
+  <td mat-cell *matCellDef="let element"> {{ element.articleNumber }} </td>
+</ng-container>
+
+<ng-container matColumnDef="ArticleName">
+  <th mat-header-cell *matHeaderCellDef> Article Name </th>
+  <td mat-cell *matCellDef="let element"> {{ element.articleName }} </td>
+</ng-container>
+
+ 
+<ng-container matColumnDef="ArticleCategory">
+  <th mat-header-cell *matHeaderCellDef> Article Category </th>
+  <td mat-cell *matCellDef="let element">
+    {{  element.articleCategory.name }}
+  </td>
+</ng-container>
+
+
+<ng-container matColumnDef="BicycleCategory">
+  <th mat-header-cell *matHeaderCellDef> Bicycle Category </th>
+  <td mat-cell *matCellDef="let element">
+    {{ getCategoryNames(element.articleBicycleCategories) }}
+  </td>
+</ng-container>
+
+
+<ng-container matColumnDef="Material">
+  <th mat-header-cell *matHeaderCellDef> Material </th>
+  <td mat-cell *matCellDef="let element"> {{ element.material.name }} </td>
+</ng-container>
+
+<ng-container matColumnDef="LengthInMm">
+  <th mat-header-cell *matHeaderCellDef> Length (mm) </th>
+  <td mat-cell *matCellDef="let element"> {{ element.lengthInMm }} </td>
+</ng-container>
+
+<ng-container matColumnDef="WidthInMm">
+  <th mat-header-cell *matHeaderCellDef> Width (mm) </th>
+  <td mat-cell *matCellDef="let element"> {{ element.widthInMm }} </td>
+</ng-container>
+
+<ng-container matColumnDef="HeightInMm">
+  <th mat-header-cell *matHeaderCellDef> Height (mm) </th>
+  <td mat-cell *matCellDef="let element"> {{ element.heightInMm }} </td>
+</ng-container>
+
+<ng-container matColumnDef="netWeightInGramm">
+  <th mat-header-cell *matHeaderCellDef> Net Weight (g) </th>
+  <td mat-cell *matCellDef="let element"> {{ element.netWeightInGramm }} </td>
+</ng-container>
+
+<ng-container matColumnDef="actions">
+  <th mat-header-cell *matHeaderCellDef> Actions </th>
+  <td mat-cell *matCellDef="let element">
+    <button mat-button color="primary" (click)="editArticle(element.articleId)">Edit
+
+
+
+    </button>
+  </td>
+</ng-container>
+
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ 
+  </table>
+</div>
